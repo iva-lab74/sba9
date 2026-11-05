@@ -20,3 +20,32 @@ export interface TaskFormData{
     priority: Priority;
     dueDate: string;
 }
+
+//default state of the filter 
+export interface FilterOptions {
+    status: Status | 'all';
+    priority: Priority | 'all';
+    search: string;
+}
+
+//props
+export interface TaskItemProps {
+    task: Task;
+    onChangeStatus: (id: string, status: Status) => void;
+    onDelete: (id: string) => void;
+}
+
+export interface TaskListProps {
+    task: Task[];
+    onChangeStatus: (id: string, status: Status) => void;
+    onDelete: (id: string) => void;
+}
+
+export interface TaskFormProps {
+    onAddTask: (data: TaskFormData) => void;
+}
+
+export interface TaskFilterProps {
+    filters: FilterOptions;
+    onChange: (filters: FilterOptions) => void;
+}
