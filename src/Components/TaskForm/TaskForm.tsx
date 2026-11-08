@@ -20,11 +20,11 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
     }
 
     function handleSubmit(e: React.FormEvent) {
-        e.preventDefault(); 
+        e.preventDefault();
         //not reloading the page
         const validationErrors = validateTaskForm(form);
         setErrors(validationErrors);
-        //dont sumbit if theres any error
+        //dont sumbit if theres any error/ constructor
         if (Object.keys(validationErrors).length > 0) return;
 
         onAddTask(form);
@@ -32,37 +32,37 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
     }
     //structure for all our factors
     return (
-      <form onSubmit={handleSubmit} className="task-form">
-        <div>
-            <label htmlFor="title">Title</label>
-            <input id="title" name="title" value={form.title} onChange={handleChange}/>
-            {errors.title && <span className="error"> {errors.title}</span>}
+        <form onSubmit={handleSubmit} className="task-form">
+            <div>
+                <label htmlFor="title">Title</label>
+                <input id="title" name="title" value={form.title} onChange={handleChange} />
+                {errors.title && <span className="error"> {errors.title}</span>}
 
-        </div>
+            </div>
 
-        <div>
-            <label htmlFor="description">Description</label>
-            <textarea id="description" name="description" value={form.description} onChange={handleChange} />
+            <div>
+                <label htmlFor="description">Description</label>
+                <textarea id="description" name="description" value={form.description} onChange={handleChange} />
 
-        </div>
+            </div>
 
-        <div>
-            <label htmlFor="priority">Priority</label>
-            <select id="priority" name="priority" value={form.priority} onChange={handleChange}>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-            </select>
-        </div>
+            <div>
+                <label htmlFor="priority">Priority</label>
+                <select id="priority" name="priority" value={form.priority} onChange={handleChange}>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
 
-        <div>
-            <label htmlFor="dueDate">Due Date</label>
-            <input type="date" id="dueDate" name="dueDate" value={form.dueDate} onChange={handleChange}/>
-            {errors.dueDate && <span className="error">{errors.dueDate}</span>}
-        </div>
+            <div>
+                <label htmlFor="dueDate">Due Date</label>
+                <input type="date" id="dueDate" name="dueDate" value={form.dueDate} onChange={handleChange} />
+                {errors.dueDate && <span className="error">{errors.dueDate}</span>}
+            </div>
 
-        <button type="submit">Add Task</button>
-      </form>
+            <button type="submit">Add Task</button>
+        </form>
     );
 }
 
