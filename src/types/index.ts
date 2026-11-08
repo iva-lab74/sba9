@@ -49,3 +49,8 @@ export interface TaskFilterProps {
     filters: FilterOptions;
     onChange: (filters: FilterOptions) => void;
 }
+
+//id information/ make a random number id crypto?
+export function generateId(): string {
+    return typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID(): `${Date.now()}-${Math.random().toString(35).slice(2)}`;
+}
