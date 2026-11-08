@@ -1,12 +1,10 @@
 
-import './App.css'
+import Dashboard from "./Components/Dashboard/Dashboard"
 
-function App() {
+export function App() {
   
   return (
-    <>
-      
-    </>
+    <Dashboard />
   )
 }
 
