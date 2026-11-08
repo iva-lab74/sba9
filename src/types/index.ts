@@ -1,6 +1,6 @@
 
 
-export type Priority = 'low' | 'medium'| 'high';
+export type Priority = 'low' | 'medium' | 'high';
 export type Status = 'todo' | 'in-progress' | 'done';
 
 //Typescripit interface declaration of a SAVED task
@@ -14,7 +14,7 @@ export interface Task {
 }
 
 //What the form collects
-export interface TaskFormData{
+export interface TaskFormData {
     title: string;
     description: string;
     priority: Priority;
@@ -52,5 +52,5 @@ export interface TaskFilterProps {
 
 //id information/ make a random number id crypto?
 export function generateId(): string {
-    return typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID(): `${Date.now()}-${Math.random().toString(35).slice(2)}`;
+    return typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(35).slice(2)}`;
 }
