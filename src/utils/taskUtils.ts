@@ -40,3 +40,18 @@ export function validateTaskForm(data: TaskFormData): Record<string, string> {
 
     return errors;
 }
+
+//dates/ overdue
+
+export function formatDate(dateString: string): string { 
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return 'Invalid date';
+    return date.toLocaleDateString(undefined, {
+         year: 'numeric', month: 'short', day: 'numeric',
+    });
+}
+
+export function isOverdue(task: Task): boolean {
+    if (task.status === 'done') return false;
+    return new Date(task.dueDate).getTime() < Date.now();
+}
