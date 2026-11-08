@@ -1,15 +1,15 @@
-import type { TaskFilterProps } from "../../types";
+import type { TaskListProps } from "../../types";
 import TaskItem from "./TaskItem";
 
-export default function TaskList({ tasks, onChangeStatus, onDelete }: TaskListProps) {
-    if (tasks.length === 0) {
+export default function TaskList({ task, onChangeStatus, onDelete }: TaskListProps) {
+    if (task.length === 0) {
         return <p className= "empty">No matching tasks.</p>;
     }
 
     return (
         <ul className="task-list">
-            {tasks.map((task) => (
-                <TaskItem task={task} onChangeStatus={onChangeStatus} onDelete={onDelete} />
+            {task.map((task) => (
+                <TaskItem task={task} onChangeStatus={onChangeStatus} onDelete={onDelete} key={task.id} />
 
             ))}
         
@@ -17,3 +17,4 @@ export default function TaskList({ tasks, onChangeStatus, onDelete }: TaskListPr
     );
 }
 
+//need a key
