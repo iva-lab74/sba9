@@ -55,3 +55,8 @@ export function isOverdue(task: Task): boolean {
     if (task.status === 'done') return false;
     return new Date(task.dueDate).getTime() < Date.now();
 }
+
+//id information/ make a random number id crypto?
+export function generateId(): string {
+    return typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(35).slice(2)}`;
+}
